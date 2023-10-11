@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <header>
-        <Navbar />
+        {/*   <Navbar /> */}
       </header>
 
       <main>

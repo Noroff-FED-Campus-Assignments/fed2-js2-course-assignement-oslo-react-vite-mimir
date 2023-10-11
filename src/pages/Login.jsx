@@ -7,29 +7,6 @@ import logo from "../assets/Y_logo.png";
  * @see https://docs.noroff.dev/social-endpoints/authentication
  */
 
-/** *Reusable Input and Button Components 
- * @author Cnbergh*/
-
-const Input = ({ type, placeholder, value, onChange, required, minLength }) => (
-  <input
-    type={type}
-    placeholder={placeholder}
-    value={value}
-    onChange={onChange}
-    required={true}
-    minLength={4}
-    className="bg-neutral-100 border-2 border-orange-100 text-gray-900 leading-tight tracking-tight sm:text-sm rounded-3xl focus:ring-primary-600 focus:border-primary-600 block w-full min-w-[220px] sm:min-w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-    aria-label={placeholder}
-  />
-);
-
-const CustomButton = ({ label, onClick, icon }) => (
-  <button onClick={onClick} className="bg-neutral-100 text-gray-900 leading-tight tracking-tight px-4 py-2 rounded-3xl w-full my-2 border-2 border-[#F5F5F5] hover:border-white dark:hover:bg-gray-100 dark:bg-gray-200 dark:border-gray-200 shadow-custom">
-    {icon && <img src={icon} alt={label} className="inline-block mr-2 w-7 h-7" />}
-    {label}
-  </button>
-);
-
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -37,8 +14,6 @@ export default function LoginPage() {
   const [isSuccess, setIsSuccess] = useState(false);
   const navigate = useNavigate();
   const [spin, setSpin] = useState(false);
-  /* const [email, setEmail] = useState('');
-  const [password, setPassword] = useState(''); */
 
   const navigateToHome = () => {
     setTimeout(() => {
@@ -113,31 +88,29 @@ export default function LoginPage() {
                       Email address
                     </label>
                     <div className="mt-2">
-                      <Input
+                      <input
                         id="email"
                         name="email"
                         type="email"
                         required
                         placeholder="Email"
                         autoComplete="email"
-                        /* value={email}
-                        onChange={(e) => setEmail(e.target.value)} required={true} */
                         defaultValue="first.last@stud.noroff.no"
-                        className="px-1 block w-full rounded-md border-0 py-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="bg-neutral-100 border-2 border-orange-100 text-gray-900 leading-tight tracking-tight sm:text-sm rounded-3xl focus:ring-primary-600 focus:border-primary-600 block w-full min-w-[220px] sm:min-w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       />
                     </div>
                   </div>
                   <div className="mt-2">
-                    <Input
+                    <input
                       id="password"
                       name="password"
                       type="password"
                       required
                       placeholder="Password"
                       autoComplete="current-password"
-                      /* value={password} onChange={(e) => setPassword(e.target.value)} required={true} minLength={4} */
+                      minLength={8}
                       defaultValue="UzI1NiIsInR5cCI"
-                      className="block w-full rounded-md border-0 px-1 py-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="bg-neutral-100 border-2 border-orange-100 text-gray-900 leading-tight tracking-tight sm:text-sm rounded-3xl focus:ring-primary-600 focus:border-primary-600 block w-full min-w-[220px] sm:min-w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
                   </div>
                   <div className="flex items-center justify-between">
