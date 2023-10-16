@@ -1,41 +1,72 @@
-import { useEffect, useState } from "react";
+import { API_URL } from '../lib/constants';
+import { useEffect, useState } from 'react';
+import { Link } from '@tanstack/react-router';
+import UserIcon from "../assets/icons/user.svg";
 
-const initialPostState = {
-  title: "No post found",
-  body: "Nothing to see here",
-  userId: null,
-  id: null,
-};
-
-/**
- * Displays a single post
- * @see https://docs.noroff.dev/social-endpoints/posts
- */
-export default function PostPage() {
-  const [post, setPost] = useState(initialPostState);
+const PostPage = () => {
+  const id = window.location.pathname;
+  const [post, setPost] = useState(null);
+  const accessToken = localStorage.getItem("jwt");
 
   useEffect(() => {
+
     const fetchData = async () => {
-      try {
-        // TIP: Get the ID from the search params in the URL
-        // TIP: Fetch the post from the API using the ID
-        // TIP: Set the post in state
-      } catch (error) {
-        // TIP: Handle errors from the API
-      } finally {
-        // TIP: Set loading to false
+      const url = `${API_URL}${id}`;
+
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setPost(data);
+      } else {
+        console.log("Error:", response.status, response.statusText);
       }
     };
 
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
     <>
-      <h1>A single post</h1>
-      <section>
-        <h2>{post?.title}</h2>
-      </section>
+      {post ? (
+        <div
+          className="w-full p-4 mb-4 border-2 border-white bg-neutral-100 rounded-3xl dark:bg-gray-700 dark:border-gray-600"
+        >
+          <h2 className="text-lg font-bold text-left text-gray-800 dark:text-white">
+            {post.title}
+          </h2>
+          <p className="mb-2 text-base text-left text-gray-800 dark:text-white">
+            {post.body}
+          </p>
+          {post.media && (
+            <img
+              src={post.media}
+              alt="Post Media"
+              className="w-full h-auto mb-2"
+            />
+          )}
+          <div className="flex items-center">
+            <img
+              src={UserIcon}
+              alt="User Icon"
+              className="w-10 h-10 rounded-full dark:invert"
+            />
+            <p className="ml-2 text-sm text-gray-600 dark:text-white">
+              @{post.id}
+            </p>
+          </div>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
+      <Link to="/">Go Back</Link>
     </>
   );
-}
+};
+
+export default PostPage;

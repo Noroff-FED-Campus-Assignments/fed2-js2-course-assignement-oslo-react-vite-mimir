@@ -1,12 +1,11 @@
 import { Outlet } from "@tanstack/react-router";
-import Navbar from "./components/navbar";
 import "./App.css";
 
 function App() {
   return (
     <>
       <header>
-        <Navbar />
+        {/*   <Navbar /> */}
       </header>
 
       <main>
@@ -14,7 +13,7 @@ function App() {
       </main>
 
       <footer>
-        <small>Created with ❤️ by You</small>
+        <small>Created with ❤️ by Team Mimir</small>
       </footer>
     </>
   );
