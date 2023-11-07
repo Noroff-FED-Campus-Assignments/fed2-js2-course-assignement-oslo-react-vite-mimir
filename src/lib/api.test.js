@@ -1,7 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { loginUser, logoutUser } from "./api";
 
-// Mocking localStorage
 const localStorageMock = (function () {
   let store = {};
   return {
@@ -24,7 +23,6 @@ Object.defineProperty(window, "localStorage", {
   value: localStorageMock,
 });
 
-// Mocking fetch
 vi.stubGlobal(
   "fetch",
   vi.fn(() =>
@@ -58,11 +56,9 @@ describe("userAuth", () => {
   });
 
   it("logoutUser clears the token from localStorage", () => {
-    // Først, "logg inn" en bruker
     localStorage.setItem("jwt", "fake_token");
     localStorage.setItem("user_email", "test@example.com");
 
-    // Nå, logg ut brukeren
     logoutUser();
 
     expect(localStorage.getItem("jwt")).toBeNull();
