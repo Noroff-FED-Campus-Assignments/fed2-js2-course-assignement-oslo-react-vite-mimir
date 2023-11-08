@@ -80,7 +80,7 @@ function NavBar() {
       <div className="pb-16"></div>
       <div className="pb-16"></div>
 
-      <button className="hidden w-full p-2 mt-auto leading-tight tracking-tight text-gray-900 bg-orange-200 border-2 border-orange-200 md:inline-block dark:bg-blue-500 dark:text-white dark:border-blue-500 dark:hover:border-blue-400 rounded-3xl hover:border-orange-100 shadow-custom">
+      <button type="Login" className="hidden w-full p-2 mt-auto leading-tight tracking-tight text-gray-900 bg-orange-200 border-2 border-orange-200 md:inline-block dark:bg-blue-500 dark:text-white dark:border-blue-500 dark:hover:border-blue-400 rounded-3xl hover:border-orange-100 shadow-custom">
         <Link to="/Login">
           Login
         </Link>
