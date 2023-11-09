@@ -8,13 +8,27 @@
 ## Overview
 This project involves the development of a React.js front-end client for an existing social media platform. The primary objectives were to create an attractive and responsive user interface, implement secure user authentication, and seamlessly integrate with the provided API.
 
-## Team Members
+# WorkFlow CA:
+Updated project with workflow:
+Forked the project repository to Cnbergh GitHub account.
+Created a new branch called workflow.
+Configured the project with eslint, prettier and commit hooks.
+Configured the project with GitHub Actions for build/deploy.
+
+
+## Team Members Mimir
 - Petter
 - Khadar
 - Christian
 
+## Forked - WorkFlow CA - Team 5 members
+- Bilal
+- Chistian
+
 ## Approach
 The project utilized React.js, emphasizing a modular and component-based architecture. JSON Web Tokens (JWT) were employed for secure user authentication, with LocalStorage ensuring persistent token storage for an enhanced user experience.
+
+- Project includes Vitest and Cypress to test functions as login and logout and e2e testing with Cypress.
 
 ## Key Features
 - **User Authentication:**
@@ -23,6 +37,13 @@ The project utilized React.js, emphasizing a modular and component-based archite
   - Dynamic content feed with options for post filtering and search functionality.
 - **Post Management:**
   - Create, edit, delete, and view posts in detail.
+- **Vitest Unit test:**
+  - The test check that login function fetches and stores a token in browser storage.
+  - The test check that logout function clears the token from browser storage.
+- **Cypress End-to-End test:**
+  - The user can log in and access their profile.
+  - The user cannot submit the login form with invalid credentials and is shown a message.
+  - The user can log out with the logout button.
 
 ## Challenges & Achievements
 - Successful API integration, including authentication and various HTTP methods.
