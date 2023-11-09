@@ -1,13 +1,26 @@
 {
   "name": "fed2-js2-ca-react-template-mo",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.4.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "format": "prettier --write \"**/*.js\"",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run format"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "dependencies": {
     "@tanstack/react-query": "^4.33.0",
@@ -21,12 +34,17 @@
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react-swc": "^3.4.0",
     "autoprefixer": "^10.4.16",
-    "eslint": "^8.45.0",
-    "eslint-plugin-react": "^7.32.2",
+    "cypress": "^13.4.0",
+    "eslint": "^8.52.0",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "husky": "^8.0.3",
+    "jsdom": "^22.1.0",
+    "lint-staged": "^15.0.2",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.3",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vitest": "^0.34.6"
   }
 }

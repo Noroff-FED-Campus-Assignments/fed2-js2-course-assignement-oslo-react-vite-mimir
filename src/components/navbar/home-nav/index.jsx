@@ -11,7 +11,11 @@ function NavBar() {
     <nav className="flex flex-col w-full p-5 text-xl text-gray-800 border-2 border-white bg-neutral-100 dark:text-white rounded-3xl dark:bg-gray-800 dark:border-gray-700 h-100 min-w-80">
       <ul className="space-y-6 ">
         <li className="flex items-center w-10 p-2 mt-auto leading-tight text-gray-800 bg-orange-200 border-2 border-orange-200 dark:bg-blue-500 dark:text-white dark:border-blue-500 dark:hover:border-blue-400 md:w-full rounded-3xl hover:border-orange-100 shadow-custom tracking-tigh">
-          <Link to="/" style={{ color: "black" }} className="flex items-center dark:invert">
+          <Link
+            to="/"
+            style={{ color: "black" }}
+            className="flex items-center dark:invert"
+          >
             <img src={HomeIcon} alt="Home Icon" className="w-6 h-6 mr-2" />
             <span className="hidden md:inline-block ">Home</span>
           </Link>
@@ -80,13 +84,13 @@ function NavBar() {
       <div className="pb-16"></div>
       <div className="pb-16"></div>
 
-      <button className="hidden w-full p-2 mt-auto leading-tight tracking-tight text-gray-900 bg-orange-200 border-2 border-orange-200 md:inline-block dark:bg-blue-500 dark:text-white dark:border-blue-500 dark:hover:border-blue-400 rounded-3xl hover:border-orange-100 shadow-custom">
-        <Link to="/Login">
-          Login
-        </Link>
+      <button className="login hidden w-full p-2 mt-auto leading-tight tracking-tight text-gray-900 bg-orange-200 border-2 border-orange-200 md:inline-block dark:bg-blue-500 dark:text-white dark:border-blue-500 dark:hover:border-blue-400 rounded-3xl hover:border-orange-100 shadow-custom">
+        <Link to="/Login">Login</Link>
       </button>
       <Link to="/Login" style={{ color: "gray-800" }}>
-        <span className="flex justify-center text-base text-gray-800 md:hidden dark:text-white">Login</span>
+        <span className="flex justify-center text-base text-gray-800 md:hidden dark:text-white">
+          Login
+        </span>
       </Link>
     </nav>
   );

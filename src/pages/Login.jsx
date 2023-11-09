@@ -1,6 +1,6 @@
-import { loginUser } from '../../src/lib/api.js';
+import { loginUser } from "../../src/lib/api.js";
 import { useNavigate, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../assets/Y_logo.png";
 
 /**
@@ -49,9 +49,17 @@ export default function LoginPage() {
   return (
     <div className="p-4 rounded-lg dark:bg-gray-900 md:p-10">
       <div className="flex items-center justify-center">
-        <img className={`h-22 sm:h-24 md:h-26 lg:h-28 xl:h-30 my-5 logo dark:invert ${spin ? 'spin' : ''}`} src={logo}></img>
+        <img
+          className={`h-22 sm:h-24 md:h-26 lg:h-28 xl:h-30 my-5 logo dark:invert ${
+            spin ? "spin" : ""
+          }`}
+          src={logo}
+        ></img>
       </div>
-      <h1 className="mt-2 mb-5 text-3xl font-bold sm:text-3xl md:text-4xl lg:text-5xl"><p className="text-sm text-white dark:text-gray-700">is</p>Better than X!</h1>
+      <h1 className="mt-2 mb-5 text-3xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">
+        <p className="text-sm text-white dark:text-gray-700">is</p>Better than
+        X!
+      </h1>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         {isSuccess ? (
@@ -67,7 +75,11 @@ export default function LoginPage() {
                 <h2 className="font-bold leading-tight tracking-tight text-gray-800 text-l sm:text-xl md:text-2xl lg:text-2xl dark:text-white">
                   Sign in to your account
                 </h2>
-                <form className="p-1 space-y-4 md:space-y-6" action="/profile" onSubmit={handleOnSubmit}>
+                <form
+                  className="p-1 space-y-4 md:space-y-6"
+                  action="/profile"
+                  onSubmit={handleOnSubmit}
+                >
                   <div>
                     <label
                       htmlFor="email"
@@ -104,13 +116,28 @@ export default function LoginPage() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-start">
                       <div className="flex items-center h-5">
-                        <input id="remember" aria-describedby="remember" type="checkbox" className="w-4 h-4 ml-2 border border-gray-100 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" />
+                        <input
+                          id="remember"
+                          aria-describedby="remember"
+                          type="checkbox"
+                          className="w-4 h-4 ml-2 border border-gray-100 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                        />
                       </div>
                       <div className="ml-1 text-sm">
-                        <label htmlFor="remember" className="text-xs font-light text-gray-600 dark:text-gray-300 sm:text-xs md:text-xs lg:text-sm">Remember me</label>
+                        <label
+                          htmlFor="remember"
+                          className="text-xs font-light text-gray-600 dark:text-gray-300 sm:text-xs md:text-xs lg:text-sm"
+                        >
+                          Remember me
+                        </label>
                       </div>
                     </div>
-                    <a href="#" className="ml-1 text-xs font-medium text-gray-700 dark:text-gray-400 sm:text-sm md:text-sm lg:text-sm text-primary-600 hover:underline">Forgot password?</a>
+                    <a
+                      href="#"
+                      className="ml-1 text-xs font-medium text-gray-700 dark:text-gray-400 sm:text-sm md:text-sm lg:text-sm text-primary-600 hover:underline"
+                    >
+                      Forgot password?
+                    </a>
                   </div>
                   <div>
                     <button
@@ -120,8 +147,11 @@ export default function LoginPage() {
                     >
                       {isLoading ? "signing in" : "Login"}
                     </button>
-                    <p className="text-xs font-light text-gray-700 sm:text-sm dark:text-gray-400">Not a member?{" "}
-                      <Link to={`/register`} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                    <p className="text-xs font-light text-gray-700 sm:text-sm dark:text-gray-400">
+                      Not a member?{" "}
+                      <Link
+                        to={`/register`}
+                        className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
                       >
                         Sign up now
                       </Link>
@@ -130,10 +160,9 @@ export default function LoginPage() {
                 </form>
               </div>
             </div>
-          </section >
-        )
-        }
-      </div >
-    </div >
+          </section>
+        )}
+      </div>
+    </div>
   );
 }

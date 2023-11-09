@@ -108,3 +108,9 @@ export async function fetchAllPosts() {
     throw new Error(error);
   }
 }
+
+/** *Logout user - @author Cnbergh*/
+export function logoutUser() {
+  localStorage.removeItem("jwt");
+  localStorage.removeItem("user_email");
+}
