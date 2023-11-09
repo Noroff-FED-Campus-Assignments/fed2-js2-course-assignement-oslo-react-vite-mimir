@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useNavigate } from '@tanstack/react-router';
 import Header from "../components/navbar/header";
 import NavBar from "../components/navbar/home-nav";
 import PostSubmission from "../components/navbar/users-post";
@@ -5,6 +7,14 @@ import PostPage from "../components/navbar/posts";
 import TrendingSection from "../components/navbar/trending";
 
 export default function HomePage() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('jwt');
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
 
   return (
     <>
