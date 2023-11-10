@@ -88,6 +88,12 @@ export async function loginUser({ email, password }) {
   }
 }
 
+/** *Logout user - @author Cnbergh*/
+export function logoutUser() {
+  localStorage.removeItem("jwt");
+  localStorage.removeItem("user_email");
+}
+
 /** *Fetch all posts*/
 export async function fetchAllPosts() {
   const url = new URL(`${API_URL}/posts`);
